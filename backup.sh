@@ -52,7 +52,7 @@ level0dir="/home/osboxes/backup/$weekofyear"
 fullbackup="/home/osboxes/backup/$weekofyear/$ymd-full"
 
 #daily directory
-level1dir="/home/osboxes/backup/$weekofyear/$ymd-diff"
+level1dir="/home/osboxes/backup/$weekofyear/$ymd$firsthour-diff"
 
 #current directory
 level2dir="/home/osboxes/backup/$weekofyear/$ymd$hour-diff"
