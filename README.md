@@ -29,3 +29,23 @@ Strategi restore:
 2. Prepare restore ke differensial backup pada tanggal terkait
 3. Prepare restore ke differensial backup pada jam terkait
 4. Jalankan restore
+
+## Kompressi Hasil Backup
+Perintah mariabackup akan menyimpan data dalam masing-masing folder sesuai dengan --target-dir yang ditentukan, sehingga perlu
+dikompressi untuk menghemat media backup(tar.gz), dan menghapus folder tersebut. Tetapi tidak semua folder setelah dikompressi
+dapat dihapus, seperti file full backup dan differensial backup harian yang masih menjadi acuan pada proses backup lanjutan
+sebagaimana yang ditentukan pada --incremental-dir. Sedangkan Untuk folder backup setiap jam dapat langsung dihapus sesaat setelah
+kompressi selesai dilakukan sistem.
+
+## Menghapus folder Differensial Backup Kemarin
+Folder hasil differensial Backup satu hari sebelumnya sudah dapat dihapus karena tidak akan menjadi acuan lagi pada --incremental-dir hari ini
+untuk menghapus file differensial Backup satu hari sebelumnya.
+
+## Menghapus folder Differensial Backup Minggu Lalu
+Folder hasil differensial Backup satu minggu sebelumnya sudah dapat dihapus karena tidak akan menjadi acuan lagi pada --incremental-dir minggu ii
+untuk menghapus file differensial Backup satu hari sebelumnya dapat menjalankan script backupclean1.sh
+
+## Menghapus folder hasil backup 4 Minggu Lalu
+Untuk menghapus hasil backup 4 minggu lalu dapat menjalankan backupclean4.sh
+
+
