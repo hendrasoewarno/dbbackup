@@ -37,6 +37,7 @@ password="mypassword"
 
 weekofyear="$(date +'%Y-%W')"
 
+yesterday="$(date --date='-1 days' +'%Y%m%d')"
 ymd="$(date +'%Y%m%d')"
 
 dayofweek="$(date +'%w')"
@@ -50,6 +51,7 @@ level0dir="/home/osboxes/backup/$weekofyear"
 fullbackup="/home/osboxes/backup/$weekofyear/$ymd-full"
 
 #daily directory
+level1yesterdaydir="/home/osboxes/backup/$weekofyear/$yesterday$firsthour-diff"
 level1dir="/home/osboxes/backup/$weekofyear/$ymd$firsthour-diff"
 
 #current directory
@@ -101,4 +103,10 @@ else
 	mariabackup --backup --target-dir=$fullbackup --user=$user --password=$password
 	tar -czvf $fullbackup.tar.gz $fullbackup
 
+fi
+
+if [ -d $level1diryesterday ]; then
+	
+	rm -rf $level1diryesterday
+	
 fi
