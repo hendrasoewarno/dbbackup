@@ -1,4 +1,4 @@
-# dbbackup
+# Backup Database MariaDB
 Script untuk melakukan backup Mariadb dengan skenario sebagai berikut:
 1. Pada setiap hari minggu akan melakukan full backup keseluruhan database
 2. Pada setiap pagi hari pada minggu yang sama akan melakukan differensial backup terhadap hasil full backup hari minggunya
